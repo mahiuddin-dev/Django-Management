@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<div class="px-4 py-5 my-5 text-center">
+    <div class="col-lg-6 mx-auto">
+    <h2 class="mb-2">Log In</h2>
+      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+        <form method="POST">
+          {% csrf_token %}
+          <p>
+            <input type="text" name="username" class="form-control" placeholder="Username" required maxlength="150" id="id_username">
+          </p>
+            <p>
+            <input type="password" name="password" class="form-control" placeholder="Password" required maxlength="128" id="id_password">
+            </p>
+          <button class="btn btn-primary" type="submit">Log In</button>
+        </form>
+      </div>
+        <p class="pt-2 pb-2"> Or </p>
+        <a class="btn btn-primary" href="{% url 'accounts:signup' %} ">Sing Up</a>
+    </div>
+  </div>
+{% endblock %}

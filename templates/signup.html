@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Sign Up{% endblock %}
+
+{% block content %}
+<div class="px-4 py-5 my-5 text-center">
+    <div class="col-lg-6 mx-auto">
+    <h2 class="mb-3">Sign Up</h2>
+      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+        <form method="POST">
+          {% csrf_token %}
+            {{ form.as_p }}
+            {{ profile_form.as_p }}
+          <button class="btn btn-primary" type="submit">Sign Up</button>
+        </form>
+
+      </div>
+        <p class="pt-2 pb-2"> Or </p>
+        <a class="btn btn-primary" href="{% url 'accounts:login' %} ">Log in</a>
+    </div>
+  </div>
+{% endblock %}
