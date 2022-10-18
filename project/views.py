@@ -27,7 +27,7 @@ def project_detail(request, id):
 
 @login_required
 @permission_required(
-    {"project.view_project", "project.can_add_new_project"}
+    {"project.view_project", "project.add_project"}
 )
 def create_project(request):
 

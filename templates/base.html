@@ -12,7 +12,12 @@
         <ul class="nav nav-pills">
           <li class="nav-item"><a href="/" class="nav-link" aria-current="page">Home</a></li>
           <li class="nav-item"><a href="{% url 'project:project' %}" class="nav-link">Project</a></li>
-          <li class="nav-item"><a href="{% url 'project:project_create' %}" class="nav-link">Add Project</a></li>
+            {% if 'workers' in groups %}
+
+            {% else %}
+                <li class="nav-item"><a href="{% url 'project:project_create' %}" class="nav-link">Add Project</a></li>
+             {% endif %}
+
           {% if user.is_authenticated %}
           <li class="nav-item"><a href="" class="nav-link">{{user.username|title}}</a></li>
           <li class="nav-item"><a href="{% url 'accounts:Logoutview' %}" class="nav-link">Logout</a></li>
